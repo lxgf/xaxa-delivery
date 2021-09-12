@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 *{
     -webkit-font-smoothing: antialiased !important;
@@ -18,6 +19,7 @@ link, input{
 body{
     background-color: #F9F9F9;
     font-family: "Catamaran", sans-serif;
+    height: 100vh;
 }
 
 header{
@@ -65,4 +67,59 @@ header{
 
 .overlay{
     background: rgba(0, 0, 0, 0.2);
+}
+
+.container{
+    max-width: 40rem;
+}
+
+.title{
+    font-family: 'Roboto', sans-serif;
+}
+
+nav{
+    background: #EBEBEB;
+}
+
+.nav__item{
+    padding: .2em;
+    border-radius: .3em;
+    background: transparent;
+    color: #535353;
+    transition: .15s ease-in-out;
+}
+
+.nav__item:active{
+    background: #F9F9F9;
+    color: #434343;
+}
+
+.rest__img{
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    width: 100vw;
+    transition: .15s ease-in-out;
+}
+
+.rest__img:hover{
+    transform: scale(.95);
+}
+
+@media (min-width: 768px){
+    .nav__item{
+        padding: .4em;
+        border-radius: .4em;
+        background: transparent;
+        color: #535353;
+        transition: .15s ease-in-out;
+    }
+
+    .rest__img{
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+        width: 9em;
+    }
+
+    .rest__img:hover{
+        transform: translate(0, .1em);
+    }
+    
 }
