@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+
+*{
+    -webkit-font-smoothing: antialiased !important;
+    -webkit-tap-highlight-color: transparent;
+}
+
+link, input{
+    outline: none;
+}
+
+::selection{
+    background-color: #d5c1ed;
+    color: #6e32c0;
+}
+
+body{
+    background-color: #F9F9F9;
+    font-family: "Catamaran", sans-serif;
+}
+
+header{
+    background: rgb(192,153,240);
+    background: url(/img/bg_tr.svg), url(/img/bg_brush.svg), linear-gradient(90deg, rgb(192,153,240,1) 0%, rgba(148,86,232,1) 100%);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left, right;
+}
+
+.logo__bg{
+    background-color: #9860E7;
+    box-shadow: 5px 3px 0px 0px rgba(152 96 231 / 80%);
+}
+
+.address{
+    background-color: rgba(249 249 249 / 95%);
+    color: #AE7CF2;
+    text-align: center;
+}
+
+.address:focus{
+    background-color: white;
+    box-shadow: 0 0 6px 0px rgb(255 255 255);
+    z-index: 20;
+}
+
+.address::placeholder{
+    color: #ad7cf2b0;
+}
+
+.search{
+    background: url(/img/search.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.cart{
+    background: url(/img/cart.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.overlay{
+    background: rgba(0, 0, 0, 0.2);
+}
