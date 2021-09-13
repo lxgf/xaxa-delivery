@@ -104,6 +104,47 @@ nav{
     transform: scale(.95);
 }
 
+.specs__item{
+    background: #EBEBEB;
+    border-radius: 1em;
+}
+
+.product{
+    background: #24252B;
+    background-image: url(/img/prords/XaXa_Pizza/pizza.png);
+    transition: .15s ease-in-out;
+}
+
+.product:hover{
+    background: #24252B;
+    background-image: url(/img/prords/XaXa_Pizza/pizza.png);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.prod__info{
+    font-family: 'Titillium Web', sans-serif;
+    background: rgba(255, 255, 255, 0.51);
+    backdrop-filter: blur(34px);
+    border-radius: 0 0 .5rem .5rem;
+}
+
+.prod__text{
+    color: black;
+    letter-spacing: 0.025em;
+    font-weight: 500;
+    font-size: 1.5em;
+}
+
+.prod__cat{
+    font-size: .9em;
+    color: rgba(0, 0, 0, 0.705);
+}
+
+.prod__price{
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.705);
+}
+
 @media (min-width: 768px){
     .nav__item{
         padding: .4em;
@@ -121,5 +162,4 @@ nav{
     .rest__img:hover{
         transform: translate(0, .1em);
     }
-    
 }
