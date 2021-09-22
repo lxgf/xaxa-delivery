@@ -1,101 +1,111 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/custom.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
-</head>
-<body>
-
+    <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <script src="js/products.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.slim.js"
+      integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <div class="absolute flex z-10 h-full w-full overlay hidden"></div>
 
     <header class="flex w-full py-4 text-white">
-        <div class="flex mx-auto  items-center">
-            <a href="/" class="flex flex-row font-bold text-xl">
-                <div class="logo__bg p-0.5">
-                    <div>XaXa</div>
-                </div>
-                <div class="ml-1 hidden p-0.5 md:flex">Delivery</div>
-            </a>
-            <input type="text" placeholder="Введите адрес доставки" class="mx-2.5 flex address text-sm p-1 rounded-lg transition duration-150 ease-in-out md:w-80 md:mx-8 md:py-1.5">
-            <script>
-                $('.address').focus(function() {
-                    $('.overlay').removeClass('hidden');
-                });
-                $('.address').focusout(function() {
-                    $('.overlay').addClass('hidden');
-                });
-            </script>
-            <a href="#" class="font-medium text-xs search py-1 transition duration-300 ease-in-out transform hover:scale-95 mr-0.5 md:mr-4 md:text-base">
-                <div class="transform scale-95 md:scale-100">Поиск</div>
-            </a>
-            <a href="#" class="font-medium text-xs cart py-1 transition duration-300 ease-in-out transform hover:scale-95 md:text-base">
-                <div class="transform scale-95 md:scale-100">Корзина</div>
-            </a>
-        </div>
+      <div class="flex mx-auto items-center">
+        <a href="/" class="flex flex-row font-bold text-xl">
+          <div class="logo__bg p-0.5">
+            <div>XaXa</div>
+          </div>
+          <div class="ml-1 hidden p-0.5 md:flex">Delivery</div>
+        </a>
+        <input
+          type="text"
+          placeholder="Введите адрес доставки"
+          class="mx-2.5 flex address text-sm p-1 rounded-lg transition duration-150 ease-in-out md:w-80 md:mx-8 md:py-1.5"
+        />
+        <script>
+          $(".address").focus(function () {
+            $(".overlay").removeClass("hidden");
+          });
+          $(".address").focusout(function () {
+            $(".overlay").addClass("hidden");
+          });
+        </script>
+        <a
+          href="#"
+          class="font-medium text-xs search py-1 transition duration-300 ease-in-out transform hover:scale-95 mr-0.5 md:mr-4 md:text-base"
+        >
+          <div class="transform scale-95 md:scale-100">Поиск</div>
+        </a>
+        <a href="#" class="font-medium text-xs cart py-1 transition duration-300 ease-in-out transform hover:scale-95 md:text-base">
+          <div class="transform scale-95 md:scale-100">Корзина</div>
+        </a>
+      </div>
     </header>
 
     <main>
-        <container class="mx-auto container flex w-full px-8 md:px-0 flex flex-col">
-            <div class="flex flex-row justify-between flex-wrap">
-                <div class="font-black mb-3 mt-4 title text-2xl text-gray-500">Рестораны - <span class="text-black">XaXa Пицца</span></div>
-                <div class="flex flex-row flex-wrap mb-4 md:mb-0 text-xs md:text-sm items-center">
-                    <div href="#" class="specs__item p-2 mr-2">20-30 мин</div>
-                    <div href="#" class="specs__item p-2 mr-2">от 100 р.</div>
-                    <div href="#" class="specs__item p-2 mr-2">24/7</div>
-                </div>
+      <container class="mx-auto container flex w-full px-8 md:px-0 flex flex-col">
+        <div class="flex flex-row justify-between flex-wrap">
+          <div class="font-black mb-3 mt-4 title text-2xl text-gray-500">Рестораны - <span class="text-black rest-name"></span></div>
+          <div class="flex flex-row flex-wrap mb-4 md:mb-0 text-xs md:text-sm items-center">
+            <div href="#" class="specs__item p-2 mr-2">20-30 мин</div>
+            <div href="#" class="specs__item p-2 mr-2">от 100 р.</div>
+            <div href="#" class="specs__item p-2 mr-2">24/7</div>
+          </div>
+        </div>
+        <nav class="flex flex-row flex-wrap text-sm p-2 rounded-lg md:px-4">
+          <a href="#" class="nav__item mr-2">Все</a>
+          <a href="#" class="nav__item mr-2">Традиционные</a>
+          <a href="#" class="nav__item mr-2">Бургеры</a>
+          <a href="#" class="nav__item mr-">Пицца</a>
+        </nav>
+        <div class="flex flex-row flex-wrap my-3 justify-between">
+          <a href="#" class="flex mb-3 product h-72 w-full rounded-lg md:w-64">
+            <div class="flex prod__inner h-full w-full items-end">
+              <div class="flex flex-col prod__info h-20 w-full p-2">
+                <div class="prod__text">Маргаритта</div>
+                <div class="prod__text prod__cat">пицца</div>
+                <div class="absolute w-full pr-4 pt-8 text-right ml-auto mr-0 prod__text prod__price">800.00₽</div>
+              </div>
             </div>
-            <nav class="flex flex-row flex-wrap text-sm p-2 rounded-lg md:px-4">
-                <a href="#" class="nav__item mr-2">Все</a>
-                <a href="#" class="nav__item mr-2">Традиционные</a>
-                <a href="#" class="nav__item mr-2">Бургеры</a>
-                <a href="#" class="nav__item mr-">Пицца</a>
-            </nav>
-            <div class="flex flex-row flex-wrap my-3 justify-between">
-                <a href="#" class="flex mb-3 product h-72 w-full rounded-lg md:w-64">
-                    <div class="flex prod__inner h-full w-full items-end">
-                        <div class="flex flex-col prod__info h-20 w-full p-2">
-                            <div class="prod__text">Маргаритта</div>
-                            <div class="prod__text prod__cat">пицца</div>
-                            <div class="absolute w-full pr-4 pt-8 text-right ml-auto mr-0 prod__text prod__price">800.00₽</div>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="flex mb-3 product h-72 w-full rounded-lg md:w-64">
-                    <div class="flex prod__inner h-full w-full items-end">
-                        <div class="flex flex-col prod__info h-20 w-full p-2">
-                            <div class="prod__text">Маргаритта</div>
-                            <div class="prod__text prod__cat">пицца</div>
-                            <div class="absolute w-full pr-4 pt-8 text-right ml-auto mr-0 prod__text prod__price">800.00₽</div>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="flex mb-3 product h-72 w-full rounded-lg md:w-64">
-                    <div class="flex prod__inner h-full w-full items-end">
-                        <div class="flex flex-col prod__info h-20 w-full p-2">
-                            <div class="prod__text">Маргаритта</div>
-                            <div class="prod__text prod__cat">пицца</div>
-                            <div class="absolute w-full pr-4 pt-8 text-right ml-auto mr-0 prod__text prod__price">800.00₽</div>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="flex mb-3 product h-72 w-full rounded-lg md:w-64">
-                    <div class="flex prod__inner h-full w-full items-end">
-                        <div class="flex flex-col prod__info h-20 w-full p-2">
-                            <div class="prod__text">Маргаритта</div>
-                            <div class="prod__text prod__cat">пицца</div>
-                            <div class="absolute w-full pr-4 pt-8 text-right ml-auto mr-0 prod__text prod__price">800.00₽</div>
-                        </div>
-                    </div>
-                </a>
+          </a>
+          <a href="#" class="flex mb-3 product h-72 w-full rounded-lg md:w-64">
+            <div class="flex prod__inner h-full w-full items-end">
+              <div class="flex flex-col prod__info h-20 w-full p-2">
+                <div class="prod__text">Маргаритта</div>
+                <div class="prod__text prod__cat">пицца</div>
+                <div class="absolute w-full pr-4 pt-8 text-right ml-auto mr-0 prod__text prod__price">800.00₽</div>
+              </div>
             </div>
-        </container>
+          </a>
+          <a href="#" class="flex mb-3 product h-72 w-full rounded-lg md:w-64">
+            <div class="flex prod__inner h-full w-full items-end">
+              <div class="flex flex-col prod__info h-20 w-full p-2">
+                <div class="prod__text">Маргаритта</div>
+                <div class="prod__text prod__cat">пицца</div>
+                <div class="absolute w-full pr-4 pt-8 text-right ml-auto mr-0 prod__text prod__price">800.00₽</div>
+              </div>
+            </div>
+          </a>
+          <a href="#" class="flex mb-3 product h-72 w-full rounded-lg md:w-64">
+            <div class="flex prod__inner h-full w-full items-end">
+              <div class="flex flex-col prod__info h-20 w-full p-2">
+                <div class="prod__text">Маргаритта</div>
+                <div class="prod__text prod__cat">пицца</div>
+                <div class="absolute w-full pr-4 pt-8 text-right ml-auto mr-0 prod__text prod__price">800.00₽</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </container>
     </main>
-
-</body>
+  </body>
 </html>

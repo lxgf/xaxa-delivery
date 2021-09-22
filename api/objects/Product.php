@@ -6,6 +6,9 @@ class Product {
     private $conn;
 
     //свойства объекта (столбцы таблицы)
+    public $rest_name;
+    public $delivery_time;
+    public $delivery_price;
     public $id;
     public $name;
     public $price;
@@ -23,7 +26,11 @@ class Product {
     function readFromRest() {
 
         //запрос на получение товаров одного ресторана
-        $query = "SELECT * FROM products WHERE rest_id = ?";
+        $query = "SELECT rests.name AS rest_name, rests.delivery_time, rests.delivery_price, 
+                    products.id, products.name, products.price, products.img_link, products.rest_id 
+                    FROM products 
+                    INNER JOIN rests ON products.rest_id=rests.id 
+                    WHERE products.rest_id=?";
 
         //подготавливаем запрос
         $stmt = $this->conn->prepare($query);

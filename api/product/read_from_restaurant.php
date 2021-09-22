@@ -46,7 +46,10 @@ if ($num > 0) {
             "name" => $name,
             "price" => $price,
             "img_link" => $img_link,
-            "rest_id" => $rest_id
+            "rest_id" => $rest_id,
+            "rest_name" => $rest_name,
+            "delivery_time" => $delivery_time,
+            "delivery_price" => $delivery_price
         );
 
         //заносим запись в массив записей
