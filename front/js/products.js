@@ -6,6 +6,11 @@ async function getData() {
   //делаем запрос к api, в качестве параметра используем id из ссылки
   let response = await fetch("http://localhost/xaxa-delivery/api/product/read_from_restaurant.php?rest_id=" + restId);
 
+  //если ресторана по id не найдено, пользователя вернет на прошлую страницу
+  if (response.status == 404) {
+    history.back();
+  }
+
   if (response.ok) {
     //возвращаем результат запроса
     let data = await response.json();
@@ -40,6 +45,7 @@ async function showProducts() {
   //находим блок с продуктами
   let prodsBlock = document.querySelector(".prods-block");
 
+  //для каждого товара создается своя карточка
   for (let key in products["records"]) {
     let link = document.createElement("a");
     link.setAttribute("href", "#");
@@ -67,5 +73,6 @@ async function showProducts() {
   }
 }
 
+//вызываем все это при загрузке страницы
 window.addEventListener("load", showData);
 window.addEventListener("load", showProducts);
