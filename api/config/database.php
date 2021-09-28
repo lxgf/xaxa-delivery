@@ -6,7 +6,7 @@ class Database {
     private $host = "localhost";
     private $db_name = "xaxadelivery";
     private $username = "root";
-    private $password = "";
+    private $password = "test";
     public $conn;
 
 
