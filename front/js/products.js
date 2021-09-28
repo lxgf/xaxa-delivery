@@ -1,10 +1,12 @@
 //получаем id текущего ресторана из ссылки
 const restId = window.location.search.replace("?id=", "");
-console.log(restId);
+
+
+let allProducts = [];
 
 async function getData() {
   //делаем запрос к api, в качестве параметра используем id из ссылки
-  let response = await fetch("http://localhost/xaxa-delivery/api/product/read_from_restaurant.php?rest_id=" + restId);
+  let response = await fetch("http://176.62.77.218/api/product/read_from_restaurant.php?rest_id=" + restId);
 
   //если ресторана по id не найдено, пользователя вернет на прошлую страницу
   if (response.status == 404) {
@@ -14,6 +16,7 @@ async function getData() {
   if (response.ok) {
     //возвращаем результат запроса
     let data = await response.json();
+
     return data;
   } else {
     //или выводим ошибку
@@ -48,7 +51,6 @@ async function showProducts() {
   //для каждого товара создается своя карточка
   for (let key in products["records"]) {
     let link = document.createElement("a");
-    link.setAttribute("href", "#");
     link.className = "flex mb-3 product h-72 w-full rounded-lg md:w-64";
     link.style = "background-image: url(/img/prords/" + products["records"][key]["img_link"] + "); !important";
     prodsBlock.appendChild(link);
@@ -73,6 +75,31 @@ async function showProducts() {
   }
 }
 
+async function addToCart() {
+  const productNodes = document.querySelectorAll(".product");
+  console.log(productNodes);
+  for (let i = 0; i < productNodes.length; ++i) {
+        let product = productNodes[i];
+        product.addEventListener("click", function () {
+            let productName = product.querySelector(".prod__text").innerHTML;
+            let productPrice = product.querySelector(".prod__price").innerHTML;
+
+            let productObject = {
+              name: productName,
+              price: productPrice
+            }
+
+            if (allProducts.indexOf(productObject) === -1) {
+              allProducts.push(productObject);
+              localStorage.setItem("products", JSON.stringify(allProducts));
+            }
+        })
+    }
+}
+
+window.addEventListener("load", addToCart);
+
 //вызываем все это при загрузке страницы
 window.addEventListener("load", showData);
-window.addEventListener("load", showProducts);
+showProducts().then(addToCart);
+

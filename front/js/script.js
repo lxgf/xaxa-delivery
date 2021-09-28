@@ -1,6 +1,6 @@
 async function getRests() {
   //делаем запрос API
-  let response = await fetch("http://localhost/xaxa-delivery/api/restaurant/read.php");
+  let response = await fetch("http://176.62.77.218/api/restaurant/read.php");
 
   //возвращаем результат
   if (response.ok) {
