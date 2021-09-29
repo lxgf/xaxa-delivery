@@ -1,7 +1,9 @@
 //получаем id текущего ресторана из ссылки
 const restId = window.location.search.replace("?id=", "");
 
+//объявляем массив для корзины
 let allProducts = [];
+//нужен для проверки наличия продукта в корзине
 let allProductsStringify = [];
 
 async function getData() {
@@ -26,6 +28,9 @@ async function getData() {
 
 async function showData() {
   let restData = await getData();
+
+  //меняем название вкладки
+  document.title = restData["records"][0]["rest_name"] + " - XaxaDelivery";
 
   //находим место для названия ресторана
   let restName = document.querySelector(".rest-name");
@@ -75,20 +80,25 @@ async function showProducts() {
   }
 }
 
+//функция для добавления товара в корзину
 async function addToCart() {
+  //находим на странице все товары
   const productNodes = document.querySelectorAll(".product");
-  console.log(productNodes);
+  
+  //каждому товару вешаем обработчик на клик
   for (let i = 0; i < productNodes.length; ++i) {
     let product = productNodes[i];
     product.addEventListener("click", function () {
       let productName = product.querySelector(".prod__text").innerHTML;
       let productPrice = product.querySelector(".prod__price").innerHTML;
 
+      //сохраняем в объект имя и цену товара, которые будем выводить в корзине
       let productObject = {
         name: productName,
         price: productPrice,
       };
 
+      //проверяем есть ли такой товар в корзине, если нет - добавляем
       if (allProductsStringify.indexOf(JSON.stringify(productObject)) === -1) {
         allProductsStringify.push(JSON.stringify(productObject));
         allProducts.push(productObject);

@@ -124,6 +124,7 @@ nav{
     background: #24252B;
     background-image: url(/img/prords/XaXa_Pizza/pizza.png);
     transition: .15s ease-in-out;
+    cursor: pointer;
 }
 
 .product:hover{

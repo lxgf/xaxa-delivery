@@ -56,10 +56,12 @@ for (let i = 0; i < allProducts.length; ++i) {
   amountCounter.appendChild(plusBtn);
 }
 
+//находим все кнопки + и - на странице
 const plusBtns = document.querySelectorAll(".plus");
 const minusBtns = document.querySelectorAll(".minus");
 let amountVal, minusBtn, plusBtn;
 
+//вешаем на кнопки + обратчик клика, который инкрементирует кол-во товара
 for (let i = 0; i < plusBtns.length; ++i) {
   plusBtn = plusBtns[i];
   plusBtn.addEventListener("click", function () {
@@ -68,6 +70,7 @@ for (let i = 0; i < plusBtns.length; ++i) {
   });
 }
 
+//аналогично с минусом
 for (let i = 0; i < minusBtns.length; ++i) {
   minusBtn = minusBtns[i];
   minusBtn.addEventListener("click", function () {
