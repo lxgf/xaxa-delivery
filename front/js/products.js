@@ -1,8 +1,8 @@
 //получаем id текущего ресторана из ссылки
 const restId = window.location.search.replace("?id=", "");
 
-
 let allProducts = [];
+let allProductsStringify = [];
 
 async function getData() {
   //делаем запрос к api, в качестве параметра используем id из ссылки
@@ -79,22 +79,23 @@ async function addToCart() {
   const productNodes = document.querySelectorAll(".product");
   console.log(productNodes);
   for (let i = 0; i < productNodes.length; ++i) {
-        let product = productNodes[i];
-        product.addEventListener("click", function () {
-            let productName = product.querySelector(".prod__text").innerHTML;
-            let productPrice = product.querySelector(".prod__price").innerHTML;
+    let product = productNodes[i];
+    product.addEventListener("click", function () {
+      let productName = product.querySelector(".prod__text").innerHTML;
+      let productPrice = product.querySelector(".prod__price").innerHTML;
 
-            let productObject = {
-              name: productName,
-              price: productPrice
-            }
+      let productObject = {
+        name: productName,
+        price: productPrice,
+      };
 
-            if (allProducts.indexOf(productObject) === -1) {
-              allProducts.push(productObject);
-              localStorage.setItem("products", JSON.stringify(allProducts));
-            }
-        })
-    }
+      if (allProductsStringify.indexOf(JSON.stringify(productObject)) === -1) {
+        allProductsStringify.push(JSON.stringify(productObject));
+        allProducts.push(productObject);
+        localStorage.setItem("products", JSON.stringify(allProducts));
+      }
+    });
+  }
 }
 
 window.addEventListener("load", addToCart);
@@ -102,4 +103,3 @@ window.addEventListener("load", addToCart);
 //вызываем все это при загрузке страницы
 window.addEventListener("load", showData);
 showProducts().then(addToCart);
-
