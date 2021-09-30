@@ -83,6 +83,20 @@ async function showProducts() {
     infoPrice.className = "absolute w-full pr-4 pt-8 text-right ml-auto mr-0 prod__text prod__price";
     infoPrice.textContent = products["records"][key]["price"] + ".00 ₽";
     infoBlock.appendChild(infoPrice);
+
+    let inCartText = document.createElement("div");
+    inCartText.className = "absolute w-full pr-6 pt-8 text-right ml-auto mr-0 prod__text prod__price hidden";
+    inCartText.textContent = "В корзине";
+    infoBlock.appendChild(inCartText);
+
+    link.addEventListener("click", () => {
+      infoPrice.classList.add('hidden');
+      inCartText.classList.remove('hidden');
+      setTimeout(function () {
+        infoPrice.classList.remove('hidden');
+        inCartText.classList.add('hidden');
+      }, 1000)
+    })
   }
 }
 
