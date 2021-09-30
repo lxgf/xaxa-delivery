@@ -31,6 +31,7 @@ for (let i = 0; i < allProducts.length; ++i) {
 
   let itemPrice = document.createElement("div");
   itemPrice.innerText = productPrice;
+  itemPrice.className = "item-price";
   cartItem.appendChild(itemPrice);
 
   let amountCounter = document.createElement("div");

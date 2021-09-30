@@ -56,7 +56,7 @@ async function showProducts() {
   //для каждого товара создается своя карточка
   for (let key in products["records"]) {
     let link = document.createElement("a");
-    link.className = "flex mb-3 product h-72 w-full rounded-lg md:w-64";
+    link.className = "flex mb-3 product h-72 w-full rounded-lg md:w-48";
     link.style = "background-image: url(/img/prords/" + products["records"][key]["img_link"] + "); !important";
     prodsBlock.appendChild(link);
 
