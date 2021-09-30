@@ -3,8 +3,14 @@ const restId = window.location.search.replace("?id=", "");
 
 //объявляем массив для корзины
 let allProducts = [];
+if (localStorage.getItem("products") != null) {
+  allProducts = JSON.parse(localStorage.getItem("products"));
+}
 //нужен для проверки наличия продукта в корзине
 let allProductsStringify = [];
+if (localStorage.getItem("products") != null) {
+  allProductsStringify = JSON.parse(localStorage.getItem("products"));
+}
 
 async function getData() {
   //делаем запрос к api, в качестве параметра используем id из ссылки
@@ -91,6 +97,8 @@ async function addToCart() {
     product.addEventListener("click", function () {
       let productName = product.querySelector(".prod__text").innerHTML;
       let productPrice = product.querySelector(".prod__price").innerHTML;
+
+      product.querySelector(".prod__price").innerHTML = "В корзине";
 
       //сохраняем в объект имя и цену товара, которые будем выводить в корзине
       let productObject = {
