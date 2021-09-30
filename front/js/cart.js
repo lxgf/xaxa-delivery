@@ -23,10 +23,13 @@ else {
   title.appendChild(clearBtn);
   clearBtn.setAttribute('href', '#')
   clearBtn.addEventListener("click", () => {
-    localStorage.clear();
+    localStorage.removeItem("products");
+    setTimeout(document.querySelector(".sum").innerHTML = "0 р.", 1000)
     location.reload();
   })
 }
+
+let sum = 0;
 
 //выводим весь список товаров в корзине
 for (let i = 0; i < allProducts.length; ++i) {
@@ -81,8 +84,16 @@ for (let i = 0; i < allProducts.length; ++i) {
     let productCost = itemPrice.innerText.replace(".00 ₽", "");
 
     this.nextElementSibling.innerHTML = (productCost * productAmount) + '₽';
+
+
   })
+
+  sum += (amountField.value * itemPrice.innerText.replace(".00 ₽", ""));
 }
+
+document.querySelector(".sum").innerHTML = sum + " р."
+
+document.querySelector(".full-price").innerText = parseInt(document.querySelector(".sum").innerText.replace(" р.", "")) + 200 + " р.";
 
 //находим все кнопки + и - на странице
 const plusBtns = document.querySelectorAll(".plus");
