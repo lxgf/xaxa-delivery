@@ -157,6 +157,15 @@ nav{
     color: rgba(0, 0, 0, 0.705);
 }
 
+.prod__link{
+    color: rgba(42, 0, 0, 0.7);
+    transition: .3s ease;
+}
+
+.prod__link:hover{
+    color: rgba(112, 0, 0, 0.7);
+}
+
 .cart__bg{
     background: #EBEBEB;
     height: fit-content;

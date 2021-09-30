@@ -10,6 +10,9 @@ if (localStorage.getItem("products") != null) {
 let allProductsStringify = [];
 if (localStorage.getItem("products") != null) {
   allProductsStringify = JSON.parse(localStorage.getItem("products"));
+  for (let i = 0; i < allProductsStringify.length; i++) {
+    allProductsStringify[i] = JSON.stringify(allProductsStringify[i]);
+  }
 }
 
 async function getData() {
@@ -84,18 +87,15 @@ async function showProducts() {
     infoPrice.textContent = products["records"][key]["price"] + ".00 ₽";
     infoBlock.appendChild(infoPrice);
 
-    let inCartText = document.createElement("div");
-    inCartText.className = "absolute w-full pr-6 pt-8 text-right ml-auto mr-0 prod__text prod__price hidden";
-    inCartText.textContent = "В корзине";
-    infoBlock.appendChild(inCartText);
+    let prodLink = document.createElement("a");
+    prodLink.className = "absolute w-full pr-6 pt-8 text-right ml-auto mr-0 prod__text prod__price hidden prod__link";
+    prodLink.setAttribute('href', 'cart.html')
+    prodLink.textContent = "В корзине";
+    infoBlock.appendChild(prodLink);
 
     link.addEventListener("click", () => {
       infoPrice.classList.add('hidden');
-      inCartText.classList.remove('hidden');
-      setTimeout(function () {
-        infoPrice.classList.remove('hidden');
-        inCartText.classList.add('hidden');
-      }, 1000)
+      prodLink.classList.remove('hidden');
     })
   }
 }

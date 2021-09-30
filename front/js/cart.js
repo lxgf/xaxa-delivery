@@ -15,6 +15,18 @@ if (allProducts == null) {
   itemName.innerText = "Ваша корзина пуста!";
   cartItem.appendChild(itemName);
 }
+else {
+  let title = document.querySelector('.title');
+  let clearBtn = document.createElement('a');
+  clearBtn.innerHTML = "Очистить";
+  clearBtn.className = "my-1 flex flex-row ml-auto w-auto cart__bg cart__item py-2 px-3 rounded-lg items-center justify-between text-sm";
+  title.appendChild(clearBtn);
+  clearBtn.setAttribute('href', '#')
+  clearBtn.addEventListener("click", () => {
+    localStorage.clear();
+    location.reload();
+  })
+}
 
 //выводим весь список товаров в корзине
 for (let i = 0; i < allProducts.length; ++i) {
@@ -43,8 +55,6 @@ for (let i = 0; i < allProducts.length; ++i) {
   minusBtn.className = "px-1.5 minus bg-purple-500 text-white";
   minusBtn.textContent = "-";
   amountCounter.appendChild(minusBtn);
-
-
 
   let amountField = document.createElement("input");
   amountField.setAttribute("type", "number");
@@ -98,3 +108,5 @@ for (let i = 0; i < minusBtns.length; ++i) {
     }
   });
 }
+
+
