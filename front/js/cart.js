@@ -22,11 +22,12 @@ for (let i = 0; i < allProducts.length; ++i) {
   productPrice = allProducts[i].price;
 
   let cartItem = document.createElement("div");
-  cartItem.className = "my-1 flex flex-row w-full cart__bg cart__item py-4 px-3 rounded-lg items-center justify-between";
+  cartItem.className = "my-1 flex flex-row w-full cart__bg cart__item py-4 px-3 rounded-lg items-center justify-between text-sm";
   productsBlock.appendChild(cartItem);
 
   let itemName = document.createElement("div");
   itemName.innerText = productName;
+  itemName.className = "w-32";
   cartItem.appendChild(itemName);
 
   let itemPrice = document.createElement("div");
@@ -43,6 +44,8 @@ for (let i = 0; i < allProducts.length; ++i) {
   minusBtn.textContent = "-";
   amountCounter.appendChild(minusBtn);
 
+
+
   let amountField = document.createElement("input");
   amountField.setAttribute("type", "number");
   amountField.setAttribute("value", "1");
@@ -55,6 +58,20 @@ for (let i = 0; i < allProducts.length; ++i) {
   plusBtn.className = "px-1.5 plus bg-purple-500 text-white";
   plusBtn.textContent = "+";
   amountCounter.appendChild(plusBtn);
+
+  let itemMPrice = document.createElement("div");
+  let mProductPrice = productPrice.substring(0, productPrice.length - 1);
+  mProductPrice = mProductPrice * document.querySelector('.amount-field').value;
+  itemMPrice.innerText = mProductPrice += '₽';
+  itemMPrice.className = "item-price";
+  cartItem.appendChild(itemMPrice);
+
+  amountCounter.addEventListener("click", function () {
+    let productAmount = amountField.value;
+    let productCost = itemPrice.innerText.replace(".00 ₽", "");
+
+    this.nextElementSibling.innerHTML = (productCost * productAmount) + '₽';
+  })
 }
 
 //находим все кнопки + и - на странице

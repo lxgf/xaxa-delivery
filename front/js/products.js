@@ -98,8 +98,6 @@ async function addToCart() {
       let productName = product.querySelector(".prod__text").innerHTML;
       let productPrice = product.querySelector(".prod__price").innerHTML;
 
-      product.querySelector(".prod__price").innerHTML = "В корзине";
-
       //сохраняем в объект имя и цену товара, которые будем выводить в корзине
       let productObject = {
         name: productName,
