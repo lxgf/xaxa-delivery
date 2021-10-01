@@ -1,13 +1,16 @@
 let productName,
   productPrice,
-  allProducts = JSON.parse(localStorage.getItem("products"));
+  allProducts = JSON.parse(localStorage.getItem("receiptData"));
   address = localStorage.getItem("address");
   date = localStorage.getItem("date");
   deliveryPrice = 200;
 
+  console.log(JSON.parse(localStorage.getItem("receiptData")));
+
 if (allProducts == null) {
-    alert('Нет покупок!');
+    window.history.back();
 }
+
 else{
     let sum = 0;
 
@@ -24,8 +27,8 @@ else{
         itemDate.innerHTML = date.slice(1,-1);
         itemAddress.innerHTML = address;
         document.querySelector('.cheque__wrapper').insertBefore(productItem, document.querySelector('#other'));
-        productName = allProducts[i].name;
-        productPrice = allProducts[i].price;
+        productName = allProducts[i]["name"];
+        productPrice = allProducts[i]["sum"];
         itemProduct.innerHTML =  productName;
         itemPrice.innerHTML = productPrice;
         itemDelivery.innerHTML = (deliveryPrice + '.00 ₽');
@@ -35,4 +38,5 @@ else{
     let finalPrice = document.querySelector('#final_price');
     finalPrice.innerHTML = sum + deliveryPrice + '.00₽';
     window.print();
+    localStorage.clear();
 }
