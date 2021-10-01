@@ -5,14 +5,40 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/custom.css">
+    <title>ААА "ХаХа Деливери"</title>
+    <link rel="stylesheet" href="css/cheque_custom.css">
 </head>
-<body class="bg-gray-400">
+<body>
     <div class="container flex mx-auto w-96">
-
+        <div class="cheque">
+            <div class="cheque__content">
+                <div class="cheque__wrapper">
+                    <div class="cheque__line cheque__line__title">КАССОВЫЙ ЧЕК / ПРИХОД</div>
+                    <div class="cheque__line cheque__line--bold">ААА "ХаХа Деливери"</div>
+                    <div class="cheque__line cheque__double-Line">
+                        <div>ДАТА ВЫДАЧИ</div>
+                        <div id="date">21/05/2001</div>
+                    </div>
+                    <div class="cheque__line cheque__double-Line">
+                        <div>АДРЕС ДОСТАВКИ</div>
+                        <div id="address">улица Пушкина, дом Колотушкина</div>
+                    </div>
+                    <div class="cheque__line cheque__line--bold">Товары</div>
+                    <div id="other" class="cheque__line cheque__line--bold">Прочее:</div>
+                    <div class="cheque__line cheque__double-Line">
+                        <div>Доставка</div>
+                        <div id="delivery_price"></div>
+                    </div>
+                    <div class="cheque__line cheque__line--bold">ИТОГО:</div>
+                    <div id="final_price" class="cheque__line cheque__line--xbold">400₽</div>
+                    <div class="cheque__line cheque__line--thin">Внимание! Чаевые не берутся!</div>
+                    <div class="cheque__divider"></div>
+                    <div class="cheque__line cheque__line--thin">Юридический адрес: г.Омска, ул. Ленина, д. 12</div>
+                    <div class="cheque__line cheque__line--thin">Все вопросы по тел.: +7 (999) 454-05-86</div>
+                </div>
+            </div>
+        </div>
     </div>
+    <script src="/js/cheque.js"></script>
 </body>
 </html>

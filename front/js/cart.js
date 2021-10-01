@@ -1,7 +1,7 @@
 //получаем информацию о товарах в корзине из локального хранилища
 let productName,
-  productPrice,
-  allProducts = JSON.parse(localStorage.getItem("products"));
+    productPrice,
+    allProducts = JSON.parse(localStorage.getItem("products"));
 
 let productsBlock = document.querySelector(".cart__items");
 
@@ -120,4 +120,32 @@ for (let i = 0; i < minusBtns.length; ++i) {
   });
 }
 
+function formattedDate(d = new Date) {
+  let month = String(d.getMonth() + 1);
+  let day = String(d.getDate());
+  const year = String(d.getFullYear());
 
+  if (month.length < 2) month = '0' + month;
+  if (day.length < 2) day = '0' + day;
+
+  return `${day}/${month}/${year}`;
+}
+
+document.querySelector('.buy-btn').addEventListener("click", () => {
+  addressFiled = document.querySelector('.address');
+  if (addressFiled.value != '') {
+    localStorage.setItem("date", JSON.stringify(formattedDate()));
+    document.location.href = "/cheque.html";
+  }
+  else {
+    addressFiled.focus();
+    addressFiled.setAttribute('readonly', 'readonly');
+    addressFiled.value = 'Адрес доствки не был введён!'
+    addressFiled.style.color = '#ff4646';
+    setTimeout(() => {
+      addressFiled.removeAttribute('readonly', 'readonly');
+      addressFiled.value = ''
+      addressFiled.style.color = '#AE7CF2';
+    }, 1500)
+  }
+})
